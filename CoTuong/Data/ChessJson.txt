@@ -1,0 +1,37 @@
+﻿[
+	{"id": "xedo1", "src":"Images/xe-do.png", "top":61, "left":106, "visible": "inline"},
+	{"id": "mado1", "src":"Images/ma-do.png", "top":61, "left":180, "visible": "inline"},
+	{"id": "tuongdo1", "src":"Images/tuongdo.png", "top":61, "left":254, "visible": "inline"},
+	{"id": "sido1", "src":"Images/si-do.png", "top":61, "left":328, "visible": "inline"},
+	{"id": "chutuongdo", "src":"Images/tuong-do.png", "top":61, "left":402, "visible": "inline"},
+	{"id": "sido2", "src":"Images/si-do.png", "top":61, "left":476, "visible": "inline"},
+	{"id": "tuongdo2", "src":"Images/tuongdo.png", "top":61, "left":550, "visible": "inline"},
+	{"id": "mado2", "src":"Images/ma-do.png", "top":61, "left":624, "visible": "inline"},
+	{"id": "xedo2", "src":"Images/xe-do.png", "top":61, "left":701, "visible": "inline"},
+	{"id": "phaodo1", "src":"Images/phao-do.png", "top":209, "left":180, "visible": "inline"},
+	{"id": "phaodo2", "src":"Images/phao-do.png", "top":209, "left":624, "visible": "inline"},
+
+	{"id": "totdo1", "src":"Images/chot-do.png", "top":283, "left":106, "visible": "inline"},
+	{"id": "totdo2", "src":"Images/chot-do.png", "top":283, "left":254, "visible": "inline"},
+	{"id": "totdo3", "src":"Images/chot-do.png", "top":283, "left":402, "visible": "inline"},
+	{"id": "totdo4", "src":"Images/chot-do.png", "top":283, "left":550, "visible": "inline"},
+	{"id": "totdo5", "src":"Images/chot-do.png", "top":283, "left":698, "visible": "inline"},
+
+	{"id": "totden1", "src":"Images/chot-den.png", "top":505, "left":106, "visible": "inline"},
+	{"id": "totden2", "src":"Images/chot-den.png", "top":505, "left":254, "visible": "inline"},
+	{"id": "totden3", "src":"Images/chot-den.png", "top":505, "left":402, "visible": "inline"},
+	{"id": "totden4", "src":"Images/chot-den.png", "top":505, "left":550, "visible": "inline"},
+	{"id": "totden5", "src":"Images/chot-den.png", "top":505, "left":698, "visible": "inline"},	
+
+	{"id": "phaoden1", "src":"Images/phao-den.png", "top":579, "left":180, "visible": "inline"},
+	{"id": "phaoden2", "src":"Images/phao-den.png", "top":579, "left":624, "visible": "inline"},
+	{"id": "xeden1", "src":"Images/xe-den.png", "top":727, "left":106, "visible": "inline"},
+	{"id": "xeden2", "src":"Images/xe-den.png", "top":727, "left":701, "visible": "inline"},
+	{"id": "maden1", "src":"Images/ma-den.png", "top":727, "left":180, "visible": "inline"},
+	{"id": "maden2", "src":"Images/ma-den.png", "top":727, "left":624, "visible": "inline"},
+	{"id": "tuongden1", "src":"Images/tuongden.png", "top":727, "left":254, "visible": "inline"},
+	{"id": "tuongden2", "src":"Images/tuongden.png", "top":727, "left":550, "visible": "inline"},
+	{"id": "siden1", "src":"Images/si-den.png", "top":727, "left":328, "visible": "inline"},
+	{"id": "siden2", "src":"Images/si-den.png", "top":727, "left":476, "visible": "inline"},
+	{"id": "chutuongden", "src":"Images/tuong-den.png", "top":727, "left":401, "visible": "inline"}
+]

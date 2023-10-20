@@ -12,12 +12,13 @@ namespace Libs.Services
     {
         private ApplicationDbContext dbContext;
         IRoomRepository roomRepository;
+        private UserInRoomRepository userInRoomRepository;
 
         public ChessService(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
             this.roomRepository = new RoomRepository(dbContext);
-            //this.userInRoomRepository = new UserInRoomRepository(dbContext);
+            this.userInRoomRepository = new UserInRoomRepository(dbContext);
         }
 
         public void Save()
@@ -33,6 +34,12 @@ namespace Libs.Services
         public List<Room> getRoomList()
         {
             return roomRepository.getRoomList();
+        }
+
+        public void insertUserInRoom(UserInRoom userInRoom)
+        {
+            userInRoomRepository.insertUserInRoom(userInRoom);
+            Save();
         }
     }
 }

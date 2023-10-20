@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\banco.png" />
+    <None Include="wwwroot\Images\chot-do.png" />
+    <None Include="wwwroot\Images\phao-den.png" />
+    <None Include="wwwroot\Images\phao-do.png" />
+    <None Include="wwwroot\Images\si-den.png" />
+    <None Include="wwwroot\Images\si-do.png" />
+    <None Include="wwwroot\Images\tuong-den.png" />
+    <None Include="wwwroot\Images\tuong-do.png" />
+    <None Include="wwwroot\Images\xe-den.png" />
+    <None Include="wwwroot\Images\xe-do.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
       <PrivateAssets>all</PrivateAssets>
