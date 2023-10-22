@@ -30,11 +30,11 @@ namespace CoTuong.Controllers.api
             List<List<PointModel>> maxtrix = new List<List<PointModel>>();
             for (int i = 0; i <= 9; i++)
             {
-                int top = 61 + i * 74;
+                int top = 2 + i * 71;
                 List<PointModel> points = new List<PointModel>();
                 for (int j = 0; j <= 8; j++)
                 {
-                    int left = 106 + j * 74;
+                    int left = 2 + j * 71;
                     PointModel point = new PointModel();
                     point.top = top;
                     point.left = left;
