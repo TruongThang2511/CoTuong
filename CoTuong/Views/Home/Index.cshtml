@@ -1,8 +1,95 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
 
-<div class="container">
+    .body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://scontent.fsgn19-1.fna.fbcdn.net/v/t1.15752-9/394495779_1490226645076932_8337144712540162532_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=W5vdyeQdniIAX_3_RBb&_nc_ht=scontent.fsgn19-1.fna&oh=03_AdSR0FQ3OuSZDmcd0IsZ5sE9Rfvg_n1zlxsnCxmWgmGOlg&oe=655C243B'); /* Đường dẫn đến hình ảnh nền */
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        width: 1440px;
+    }
+
+    .container{
+        margin-left: 0;
+        margin-right: 0;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+        padding: 200px;
+    }
+
+    .menu button {
+        background-color: #4C382F;
+        color:white;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 30px;
+        width:260px;
+    }
+
+    .menu button a{
+        color:white;
+        text-decoration: none;
+    }
+
+</style>
+<div class="body">
+    <div class="menu">
+        
+        <button><a asp-area="" asp-controller="Rooms">CHƠI</a></button>
+        <form action="Home/Index" method="post">
+            <input type="text" name="roomName" placeholder="Nhập tên phòng" style="width:260px;" />
+            <button type="submit">TẠO</button>
+        </form>
+        @*<button onclick="showRoomNameInput()">TẠO PHÒNG</button>
+        <div id="roomNameInput" style="display: none;">
+            <input type="text" id="roomName" placeholder="Nhập tên phòng" style="width:260px;">
+            <button onclick="createRoom()">TẠO</button>
+        </div>*@
+        <button><a asp-area="" asp-controller="Home" asp-action="HuongDan">HƯỚNG DẪN</a></button>
+    </div>
+</div>
+<script>
+    function showRoomNameInput() {
+        // Hiển thị ô nhập liệu khi nút "Tạo phòng" được nhấn
+        document.getElementById('roomNameInput').style.display = 'block';
+    }
+
+    function createRoom() {
+        const roomName = document.getElementById('roomName').value;
+
+        if (roomName.trim() === '') {
+            alert('Vui lòng nhập tên phòng.');
+        } else {
+            // Gửi dữ liệu với phương thức POST
+            fetch('/api/Room/insertRoom', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ roomName: roomName }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                });
+        }
+    }
+</script>
+
+@*<div class="container">
     <div class="row p-1">
         <div class="col-1">User</div>
         <div class="col-5"><input type="text" id="userInput" /></div>
@@ -28,4 +115,4 @@
     </div>
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+<script src="~/js/chat.js"></script>*@

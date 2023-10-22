@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Hướng dẫn cách chơi";
+}
+<style>
+    /* Thiết lập kiểu cho header */
+    .header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Thiết lập kiểu cho phần nội dung */
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Thiết lập kiểu cho các phần (introduction, rules, pieces, strategy) */
+    section {
+        margin-bottom: 30px;
+    }
+</style>
+<div class="header">
+    <h1>Hướng dẫn cách chơi cờ tướng</h1>
+</div>
+<div class="main">
+    <section id="introduction">
+        <h2>Giới thiệu về cờ tướng</h2>
+        <p>
+            Cờ tướng (còn gọi là cờ Tây, cờ xiangqi) là một trò chơi cờ chiến thuật truyền thống, phổ biến tại nhiều quốc gia châu Á, đặc biệt là Trung Quốc và Việt Nam. Trò chơi này đòi hỏi người chơi phải sử dụng chiến thuật và khả năng tư duy chiến lược để đánh bại đối thủ. Dưới đây là một số thông tin giới thiệu về cờ tướng:
+        </p>
+    </section>
+    <section id="rules">
+        <h2>Luật chơi cờ tướng</h2>
+        <p>Cờ tướng là một trò chơi truyền thống của Trung Quốc, và nó có một số luật cơ bản như sau:</p>
+        <h4>1. Bàn cờ:</h4>
+        <p>Bàn cờ tướng là một hình chữ nhật với kích thước 9x10 ô. Hai bên đối đầu chơi trên bàn cờ, và có một đường ngang chia bàn thành hai phần gọi là "cờ sở."</p>
+        <h4>2. Quân cờ:</h4>
+        <p>Mỗi bên có 16 quân cờ, bao gồm một vua, một tượng, một pháo, hai mã, hai xe, hai tượng, hai sĩ và hai tốt.</p>
+        <h4>3. Mục tiêu:</h4>
+        <p>Mục tiêu của trò chơi là chiếu đối phương, tương tự như cờ vua. Người chiếu trắng và đen sẽ thay phiên nhau thực hiện nước đi.</p>
+        <h4>4. Luật cơ bản:</h4>
+        <p>-Vua: Vua di chuyển một ô một lần trong bất kỳ hướng nào (ngang hoặc dọc).</p>
+        <p>-Xe: Xe di chuyển theo hàng ngang hoặc dọc mà không bị cản trở.</p>
+        <p>-Mã: Mã di chuyển theo hình chữ L và có khả năng nhảy qua quân cờ khác.</p>
+        <p>-Tượng: Tượng di chuyển đường chéo một ô.</p>
+        <p>-Sĩ: Sĩ di chuyển một ô theo đường chéo trong một hình vuông 2x2.</p>
+        <p>-Tốt: Tốt chỉ di chuyển lên một ô một lần.</p>
+        <p>-Pháo: Pháo di chuyển giống xe nhưng cần có một quân cờ để nhảy qua để ăn quân đối phương.</p>
+    </section>
+    <section id="pieces">
+        <h2>Quân cờ cờ tướng</h2>
+        <p>1. Vua: Vua di chuyển một ô một lần trong bất kỳ hướng nào.</p>
+        <p>2. Xe: Xe di chuyển theo hàng ngang hoặc hàng dọc mà không thể bị cản trở.</p>
+        <p>3. Mã: Mã di chuyển theo hình chữ L và có khả năng nhảy qua các quân cờ khác.</p>
+        <p>4. Tượng: Tượng di chuyển một ô theo đường chéo trong phạm vi một hình vuông 2x2.</p>
+        <p>5. Sĩ: Sĩ di chuyển một ô theo đường chéo trong một hình vuông 2x2, nhưng không được rời khỏi phần cờ sở của mình.</p>
+        <p>6. Tốt: Tốt chỉ di chuyển lên một ô một lần.</p>
+        <p>7. Pháo: Pháo di chuyển giống xe nhưng cần có một quân cờ để nhảy qua để ăn quân đối phương.</p>
+    </section>
+    <section id="strategy">
+        <h2>Chiến thuật cờ tướng</h2>
+        <p>1. Kiểm soát trung tâm: Hãy cố gắng kiểm soát các ô ở trung tâm bàn cờ và giữ chúng, vì đó là vị trí chiến lược để tạo ra cơ hội và bảo vệ vua của bạn.</p>
+
+        <p>2. Phối hợp quân cờ: Hãy xem xét cách các quân cờ của bạn có thể hỗ trợ lẫn nhau. Khi chơi, hãy xem xét việc đặt quân cờ sao cho chúng tạo ra mối quan hệ tương hỗ.</p>
+
+        <p>3. Kỹ thuật phòng thủ vua: Luôn bảo vệ vua của bạn khỏi các đe dọa tiềm năng. Sử dụng các quân cờ khác để tạo ra vùng an toàn xung quanh vua của bạn.</p>
+
+        <p>4. Ăn quân đối phương: Tận dụng các cơ hội để ăn quân cờ của đối phương, đặc biệt là nếu quân cờ đó có giá trị cao như vua hoặc xe.</p>
+
+        <p>5. Chuẩn bị cuộc tấn công: Trước khi tấn công, hãy đảm bảo rằng quân cờ của bạn được bảo vệ và có sự hỗ trợ của nhau. Điều này sẽ làm cho cuộc tấn công hiệu quả hơn.</p>
+    </section>
+</div>

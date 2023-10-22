@@ -9,7 +9,7 @@ namespace CoTuong.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private ChessService chessService;
         public HomeController(ILogger<HomeController> logger,ChessService chessService)
         {
             _logger = logger;
@@ -17,13 +17,17 @@ namespace CoTuong.Controllers
             //chessService.InsertRoom(new Room() { id = Guid.NewGuid(), Name = "Room 1" });
             //danh sách room
             //List<Room> roomList = chessService.getRoomList();
-            int x = 0;
         }
-
         public IActionResult Index()
         {
             return View();
         }
+        //[HttpPost]
+        //public IActionResult Index(string roomName)
+        //{
+        //    chessService.InsertRoom(new Room() { id = Guid.NewGuid(), Name = roomName });
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
@@ -34,6 +38,11 @@ namespace CoTuong.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult HuongDan()
+        {
+            return View();
         }
     }
 }
