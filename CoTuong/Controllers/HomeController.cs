@@ -9,7 +9,7 @@ namespace CoTuong.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private ChessService chessService;
+
         public HomeController(ILogger<HomeController> logger,ChessService chessService)
         {
             _logger = logger;
@@ -22,12 +22,6 @@ namespace CoTuong.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Index(string roomName)
-        //{
-        //    chessService.InsertRoom(new Room() { id = Guid.NewGuid(), Name = roomName });
-        //    return View();
-        //}
 
         public IActionResult Privacy()
         {

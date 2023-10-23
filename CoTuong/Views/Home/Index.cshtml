@@ -47,72 +47,50 @@
 </style>
 <div class="body">
     <div class="menu">
-        
-        <button><a asp-area="" asp-controller="Rooms">CHƠI</a></button>
-        @*<form action="Home/Index" method="post">
-            <input type="text" name="roomName" placeholder="Nhập tên phòng" style="width:260px;" />
-            <button type="submit">TẠO</button>
-        </form>*@
-        @*<button onclick="showRoomNameInput()">TẠO PHÒNG</button>
-        <div id="roomNameInput" style="display: none;">
-            <input type="text" id="roomName" placeholder="Nhập tên phòng" style="width:260px;">
-            <button onclick="createRoom()">TẠO</button>
-        </div>*@
+        <button class="btn btn-style rounded-pill" type="button">
+            <div class="btn_title">
+                @Html.ActionLink("CHƠI", "PlayRoom", "Room", null, new {@class = "link_title"})
+            </div>
+        </button>
+
+        <input type="text" id="roomNameInput" placeholder="Nhập tên phòng" style="width:260px;" />
+        <button onclick="createRoom()">Tạo Phòng</button>
+
+        <button class="btn btn-style rounded-pill" type="button">
+            <div class="btn_title">Phòng</div>
+        </button>
+        <button class="btn btn-style rounded-pill" type="button">
+            <div class="btn_title">Xếp Hạng</div>
+        </button>
+
         <button><a asp-area="" asp-controller="Home" asp-action="HuongDan">HƯỚNG DẪN</a></button>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script>
-    function showRoomNameInput() {
-        // Hiển thị ô nhập liệu khi nút "Tạo phòng" được nhấn
-        document.getElementById('roomNameInput').style.display = 'block';
-    }
-
     function createRoom() {
-        const roomName = document.getElementById('roomName').value;
+        const roomName = document.getElementById('roomNameInput').value;
 
         if (roomName.trim() === '') {
             alert('Vui lòng nhập tên phòng.');
         } else {
-            // Gửi dữ liệu với phương thức POST
-            fetch('/api/Room/insertRoom', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ roomName: roomName }),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
+            // Dữ liệu bạn muốn gửi
+            const requestData = { roomName: roomName };
+
+            // Gửi yêu cầu POST sử dụng Axios
+            axios.post('/api/Room/insertRoom', requestData)
+                .then(response => {
+                    // Kiểm tra phản hồi từ máy chủ
+                    if (response.data.status) {
+                        alert(`Phòng "${roomName}" đã được tạo.`);
+                    } else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi khi gửi yêu cầu API:', error);
                 });
         }
     }
 </script>
 
-@*<div class="container">
-    <div class="row p-1">
-        <div class="col-1">User</div>
-        <div class="col-5"><input type="text" id="userInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-1">Message</div>
-        <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6 text-end">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <hr />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-</div>
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>*@

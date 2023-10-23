@@ -1,11 +1,13 @@
 ﻿using CoTuong.CachesManage;
+using CoTuong.Hubs;
 using Libs.Entity;
 using Libs.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace CoTuong.Controllers
+namespace CoTuong.Controllers.api
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -27,8 +29,14 @@ namespace CoTuong.Controllers
         [Route("insertRoom")]
         public IActionResult insertRoom(string roomName)
         {
-            chessService.InsertRoom(new Room() { id = Guid.NewGuid(), Name = roomName });
-            return Ok(new {status = true, message=""});
+            var newRoom = new Room
+            {
+                id = Guid.NewGuid(),
+                Name = roomName
+            };
+            chessService.InsertRoom(newRoom);
+
+            return Ok(new { status = true, message = "" });
         }
         [HttpGet]
         [Route("getRoom")]

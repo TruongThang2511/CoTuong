@@ -1,0 +1,43 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.containers {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 18px;
+}
+
+.chess_border {
+    border-left: 2px solid;
+    border-right: 2px solid;
+}
+
+.chessboard {
+    width: 635px;
+    height: 706px;
+    background-image: url(/Images/banco.svg);
+    position: absolute;
+}
+
+.chessnode {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+}
+
+.chessimgnode {
+    width: 65px;
+    height: 65px;
+}
+
+
+/*ChatHub*/
+
+.chat_border {
+    border-right: 2px solid;
+}

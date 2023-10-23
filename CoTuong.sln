@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoTuong", "CoTuong\CoTuong.csproj", "{36E8B629-D59F-414E-864F-79357594BC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libs", "Libs\Libs.csproj", "{B73891C5-6B4F-453D-90ED-4333B002670D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libs", "Libs\Libs.csproj", "{B73891C5-6B4F-453D-90ED-4333B002670D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

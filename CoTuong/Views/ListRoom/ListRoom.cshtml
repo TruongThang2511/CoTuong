@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "PlayRoomList";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/listroom.css" />
+<div id="app">
+    <div class="row g-3 align-items-center">
+        <h2>Tạo phòng</h2>
+        <div class="col-auto">
+            <label for="txtName" class="col-form-label">Tên phòng</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="txtName">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-primary" v-on:click="createRoom">Tạo</button>
+        </div>
+    </div>
+
+    <div style="height: 3rem;"></div>
+    <div class="row g-3 align-items-center">
+        <h2>Danh sách phòng</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card text-dark bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên phòng: Chơi với máy</h5>
+                        <p class="card-text">Mã phòng: Chơi với máy</p>
+                        <a class="btn btn-outline-dark" href="/Home/AutoChess">Tham gia</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col" v-for="r in rooms">
+                <div class="card text-dark bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên phòng: {{ r.Name }}</h5>
+                        <p class="card-text">Mã phòng: {{ r.Id }}</p>
+                        <a class="btn btn-outline-danger" v-bind:href="'/Home/Chess?roomid='+ r.Id">Tham gia</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="~/js/room_list.js"></script>
