@@ -3,36 +3,12 @@
 *@
 @{
     ViewData["Title"] = "PlayRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <link rel="stylesheet" href="~/css/playtime.css" />
-<link rel="stylesheet" href="~/css/chat.css" />
 <link rel="stylesheet" href="~/css/chess.css" />
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-<script src="~/js/chess.js"></script>
-<script src="~/js/chat.js"></script>
-<style>
-    .chessboard {
-        width: 635px;
-        height: 706px;
-        background-image: url(/Images/banco.svg);
-        position: absolute;
-    }
+<link rel="stylesheet" href="~/css/chat.css" />
 
-    .chessnode {
-        position: absolute;
-        width: 65px;
-        height: 65px;
-    }
-
-    .chessimgnode {
-        width: 65px;
-        height: 65px;
-    }
-</style>
 <div id="app" class="row g-0 text-center" style="min-height: 676px; margin: 0 20px;">
 
     <div class="col-sm-6 col-md-8 chess_border">
@@ -89,9 +65,10 @@
 
             </div>
         </div>
-
     </div>
 </div>
-
-
-
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="~/js/chess.js"></script>
+<script src="~/js/chat.js"></script>

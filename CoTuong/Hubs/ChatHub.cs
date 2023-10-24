@@ -7,9 +7,13 @@ namespace CoTuong.Hubs
         public async Task SendMessage(string user, string message)
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
-            
-        }
 
+        }
+        public async Task SendChessMove(string message)
+        {
+            await Clients.All.SendAsync("ReceiveChessMove", message);
+
+        }
         public override Task OnConnectedAsync()
         {
             string str = Context.ConnectionId;

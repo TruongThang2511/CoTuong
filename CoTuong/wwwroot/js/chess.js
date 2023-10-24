@@ -244,6 +244,8 @@ var app = new Vue({
                         countVertical++;
                     }
                 }
+            } else {
+                return false; // Nếu pháo cố gắng di chuyển xéo, nó là nước đi không hợp lệ.
             }
 
             if (countHorizontal === 0 || countVertical === 0) {

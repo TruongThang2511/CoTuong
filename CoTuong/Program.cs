@@ -1,10 +1,16 @@
 ﻿using CoTuong.Hubs;
 using Libs;
 using Libs.Entity;
+using Libs.Repositories;
 using Libs.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Security.Claims;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,20 +29,48 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        .AddCookie(options =>
-        {
-            options.LoginPath = "/Account/Login";
-            options.LogoutPath = "/Account/Logout";
-        });
+builder.Services.AddCors();
 
-builder.Services.AddAuthorization();
-builder.Services.AddDistributedMemoryCache(); // Sử dụng bộ nhớ đệm cho phiên
-builder.Services.AddSession(options =>
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
+
+builder.Services.AddAuthentication(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian phiên tồn tại
-    options.Cookie.HttpOnly = true; // Giảm nguy cơ tấn công XSS
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidAudience = "ValidAudience",
+        ValidIssuer = "ValidIssuer",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Secret"))
+    };
+    options.Events = new JwtBearerEvents
+    {
+        OnTokenValidated = async context =>
+        {
+            var userManager = context.HttpContext.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+
+            var userName = context.Principal.Identity.Name;
+            var user = await userManager.FindByNameAsync(userName);
+
+            if (user == null || !context.Principal.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Admin"))
+            {
+                context.Fail("Unauthorized");
+            }
+        }
+    };
 });
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -56,9 +90,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
